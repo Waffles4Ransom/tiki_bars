@@ -22,5 +22,24 @@ class Scraper
     bar.address = deets.css("a")[0].text.strip
     bar.hours = deets.css("div")[2].text.strip
   end 
+  
+  def self.scrape_more_info(bar)
+    more_info = {}
+    url = bar.url
+    html = Nokogiri::HTML(open(url))
+    more = url.css("div.bordered-box.clearfix")
+
+    more.css("div.bordered-box.clearfix").each do |i|
+      if i.css("div.module h5")[2].text == "Neighborhood"
+        more_info[:neighborhood] = i.css("a").text.strip
+      elsif i.css("div.module h5").last.text == "ProTip"
+        more_info[:protip] = i.css("span")[1].text
+      end
+    end 
+
+    more_info[:what_to_drink] = more.css("span").text.strip.gsub("\u2019", "'")
+
+    more_info
+  end 
     
 end 
