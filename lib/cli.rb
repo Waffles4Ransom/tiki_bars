@@ -8,9 +8,11 @@ class CLI
   
   def greeting 
     puts "\nAloha! Welcome to the World's 15 Most Important Tiki Bars!\n\n"
+    puts "``'-.,_,.-'``'-.,_,.='``'-.,_,.-'``'-.,_,.='``'-.,_,.-'``'"
   end
   
   def menu
+    puts "\n\n"
     puts "To continue enter 'y' or 'exit' to leave"
     input = gets.strip.downcase
     case input 
@@ -54,12 +56,14 @@ class CLI
   end 
   
   def continue?
-    puts "Please enter 'y' to choose again or 'exit' to leave:"
+    puts "Please enter 'y' to choose another tiki bar or 'exit' to leave:"
     input = gets.strip.downcase
     case input
     when 'exit'
       goodbye
     when 'y'
+      puts "\n\n"
+      self. list_tiki_bars
       self.choose_bar
       continue?
     else
@@ -69,7 +73,9 @@ class CLI
   end 
   
   def goodbye
-    puts "Mahalo! Cheers!"
+    puts "\n\n"
+    puts "    Time flies when you're having rum! Mahalo! Cheers!   "
+    puts "``'-.,_,.-'``'-.,_,.='``'-.,_,.-'``'-.,_,.='``'-.,_,.-'``'"
   end 
   
 end 
