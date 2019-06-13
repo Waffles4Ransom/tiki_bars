@@ -13,6 +13,9 @@ class Scraper
         Bar.new(name, url)
     end
   end  
-    
   
+  def self.scrape_bar_info
+    
+  end 
+    
 end 
