@@ -1,15 +1,15 @@
 class Bar 
-    @@all = []
-    
-    attr_reader :name, :url
+   attr_reader :name, :url
+   
+   @@all = []
   
-    def initialize(name, url)
-        @name = name 
-        @url = url 
-        @@all << self
-    end 
+  def initialize(name, url)
+    @name = name 
+    @url = url 
+    @@all << self
+  end 
   
-    def self.all
-        @@all
-    end 
+  def self.all
+    @@all
+  end 
 end 
