@@ -61,9 +61,9 @@ class CLI
     puts bar.address
     puts bar.hours
     puts "\n"
-    puts "The local neighborhood is #{bar.neighborhood}."
+    puts "The local neighborhood is #{bar.neighborhood}." if bar.neighborhood != nil 
     puts "Recommended order: #{bar.what_to_drink}"
-    puts bar.protip
+    puts "Protip: #{bar.protip}" if bar.protip != nil 
     puts "\n\n"
   end 
   

@@ -38,7 +38,7 @@ class Scraper
       end
     end 
 
-    more_info[:what_to_drink] = more.css("span").text.strip.gsub("\u2019", "'")
+    more_info[:what_to_drink] = more.css("span")[0].text.strip
 
     more_info
   end 
