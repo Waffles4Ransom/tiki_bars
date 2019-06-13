@@ -31,7 +31,7 @@ class CLI
       self.choose_bar
       self.continue?
     else
-      puts "That wasn't a valid response...\n\n"
+      puts "That wasn't a valid response...\n"
       menu
     end
   end 
@@ -86,8 +86,9 @@ class CLI
   
   def goodbye
     puts "\n\n"
-    puts "    Time flies when you're having rum! Mahalo! Cheers!   "
+    puts "   Time flies when you're having rum! Mahalo! Cheers!   "
     puts "``'-.,_,.-'``'-.,_,.='``'-.,_,.-'``'-.,_,.='``'-.,_,.-'``'"
+    puts "\n\n"
   end 
   
 end 
