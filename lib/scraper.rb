@@ -15,7 +15,12 @@ class Scraper
   end  
   
   def self.scrape_bar_info(bar)
-    
+    url = bar.url
+    html = Nokogiri::HTML(open(url))
+    deets = html.css("div.info-box")
+
+    bar.address = deets.css("a")[0].text.strip
+    bar.hours = deets.css("div")[2].text.strip
   end 
     
 end 

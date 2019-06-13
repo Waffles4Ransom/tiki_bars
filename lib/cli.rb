@@ -34,7 +34,7 @@ class CLI
   def choose_bar
     puts "Please enter the number of the bar you'd like to read more about:"
     index = gets.strip.to_i - 1
-    if index.between?(1, 14) 
+    if index.between?(0, 14) 
       bar = Bar.all[index]
       Scraper.scrape_bar_info(bar)
     else
