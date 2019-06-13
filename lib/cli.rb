@@ -21,7 +21,7 @@ class CLI
       self.list_tiki_bars
       self.choose_bar
     else
-      puts "That wasn't a valid response..."
+      puts "That wasn't a valid response...\n\n"
       menu
     end
   end 
@@ -34,6 +34,7 @@ class CLI
   def choose_bar
     puts "Please enter the number of the bar you'd like to read more about:"
     index = gets.strip.to_i - 1
+    #need to write logic for edge cases 
     bar = Bar.all[index]
     Scraper.scrape_bar_info(bar)
   end 
