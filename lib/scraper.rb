@@ -14,7 +14,7 @@ class Scraper
     end
   end  
   
-  def self.scrape_bar_info
+  def self.scrape_bar_info(bar)
     
   end 
     

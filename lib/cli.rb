@@ -34,9 +34,13 @@ class CLI
   def choose_bar
     puts "Please enter the number of the bar you'd like to read more about:"
     index = gets.strip.to_i - 1
-    #need to write logic for edge cases 
-    bar = Bar.all[index]
-    Scraper.scrape_bar_info(bar)
+    if index.between?(1, 14) 
+      bar = Bar.all[index]
+      Scraper.scrape_bar_info(bar)
+    else
+      puts "Invalid response..."
+      choose_bar
+    end
   end 
   
   def goodbye
