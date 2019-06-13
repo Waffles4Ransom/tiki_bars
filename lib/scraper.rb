@@ -25,9 +25,10 @@ class Scraper
   
   def self.scrape_more_info(bar)
     more_info = {}
+    
     url = bar.url
     html = Nokogiri::HTML(open(url))
-    more = url.css("div.bordered-box.clearfix")
+    more = html.css("div.bordered-box.clearfix")
 
     more.css("div.bordered-box.clearfix").each do |i|
       if i.css("div.module h5")[2].text == "Neighborhood"
