@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-Type `tiki_bars` to run after installing the gem.
+Type `run` to begin CLI after installing the gem.
 
 ## Development
 
@@ -40,3 +40,7 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the TikiBars project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'helpful-controller-0690'/tiki_bars/blob/master/CODE_OF_CONDUCT.md).
+
+## Acknowledgments
+
+Thank you to online magazine PUNCH for publishing this very important list.
