@@ -18,7 +18,7 @@ class CLI
     case input 
     when 'exit'
       self.goodbye
-    when 'y'
+    when 'y' 
       self.list_tiki_bars
       self.choose_bar
       self.continue?
@@ -62,7 +62,7 @@ class CLI
     puts "\n"
     puts "The local neighborhood is #{bar.neighborhood}." if bar.neighborhood != nil 
     puts "Recommended order: #{bar.what_to_drink}"
-    puts "Protip: #{bar.protip}" if bar.protip != nil 
+    puts "Pro Tip: #{bar.protip}" if bar.protip != nil 
     puts "\n\n"
   end 
   
