@@ -17,15 +17,14 @@ class CLI
     input = gets.strip.downcase
     case input 
     when 'exit'
-      goodbye
-      return
+      self.goodbye
     when 'y'
       self.list_tiki_bars
       self.choose_bar
       self.continue?
     else
-      puts "That wasn't a valid response...\n"
-      menu
+      puts "That isn't a valid response...\n"
+      self.menu
     end
   end 
     
@@ -51,7 +50,7 @@ class CLI
       self.display_bar_info(bar)
     else
       puts "Invalid response..."
-      choose_bar
+      self.choose_bar
     end
   end 
   
@@ -72,15 +71,15 @@ class CLI
     input = gets.strip.downcase
     case input
     when 'exit'
-      goodbye
+      self.goodbye
     when 'y'
       puts "\n\n"
       self.list_tiki_bars
       self.choose_bar
-      continue?
+      self.continue?
     else
       puts "Invalid response..."
-      continue?
+      self.continue?
     end 
   end 
   
