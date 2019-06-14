@@ -3,15 +3,8 @@ class CLI
   def run 
     self.greeting
     Scraper.scrape_bars
-    menu
+    self.menu
   end 
-  
-  def add_attributes_to_bars(bar)
-    Bar.all.each do |bar|
-      attributes = Scraper.scrape_more_info(bar)
-      bar.add_bar_attributes(attributes)
-    end 
-  end
   
   def greeting 
     puts "\nAloha! Welcome to the World's 15 Most Important Tiki Bars!\n\n"
@@ -39,6 +32,13 @@ class CLI
   def list_tiki_bars
     puts "The following is an unranked list:"
     Bar.all.each.with_index(1) { |b, i| puts "#{i}. #{b.name}" }
+  end
+  
+  def add_attributes_to_bars(bar)
+    Bar.all.each do |bar|
+      attributes = Scraper.scrape_more_info(bar)
+      bar.add_bar_attributes(attributes)
+    end 
   end
     
   def choose_bar
@@ -75,7 +75,7 @@ class CLI
       goodbye
     when 'y'
       puts "\n\n"
-      self. list_tiki_bars
+      self.list_tiki_bars
       self.choose_bar
       continue?
     else

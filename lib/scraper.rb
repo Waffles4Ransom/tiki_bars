@@ -30,7 +30,7 @@ class Scraper
     html = Nokogiri::HTML(open(url))
     more = html.css("div.bordered-box.clearfix")
 
-    more.css("div.bordered-box.clearfix").each do |i|
+    more.each do |i|
       if i.css("div.module h5")[2].text == "Neighborhood"
         more_info[:neighborhood] = i.css("a").text.strip
       elsif i.css("div.module h5").last.text == "ProTip"
