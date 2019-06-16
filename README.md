@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-Type `run` to begin CLI after installing the gem.
+Once inside the root directory, type `bin/run` to begin the CLI.
 
 ## Development
 
