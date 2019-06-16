@@ -33,13 +33,6 @@ class CLI
     Bar.all.each.with_index(1) { |b, i| puts "#{i}. #{b.name}" }
   end
   
-  # def add_attributes_to_bars(bar)
-  #   Bar.all.each do |bar|
-  #     attributes = Scraper.scrape_more_info(bar)
-  #     bar.add_bar_attributes(attributes)
-  #   end 
-  # end
-    
   def choose_bar
     puts "Please enter the number of the bar you'd like to read more about:"
     index = gets.strip.to_i - 1
@@ -61,10 +54,13 @@ class CLI
     puts bar.hours
     puts "\n"
     puts "#{bar.name} is known for:"
-    puts bar.known_for
-    puts "The local neighborhood is #{bar.neighborhood}." if bar.neighborhood != nil 
+    bar.known_for.each_with_index { |li, i| puts "#{i+1}. #{li}" }
+    puts "\n"
+    puts "The local neighborhood is #{bar.neighborhood}." if bar.neighborhood != nil
+    puts "\n"
     puts "Recommended order: #{bar.what_to_drink}"
-    puts "Pro Tip: #{bar.protip}" if bar.protip != nil 
+    puts "\n"
+    puts "Pro Tip: #{bar.protip}" if !bar.protip.empty?
     puts "\n\n"
   end 
   

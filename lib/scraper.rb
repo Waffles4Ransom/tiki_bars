@@ -19,33 +19,16 @@ class Scraper
 
     bar.address = deets.css("div.info-box a")[0].text.strip if bar.address == nil 
     bar.hours = deets.css("div.info-box div")[1].text.strip if bar.hours == nil
-    bar.website = deets.css("div.info-box a")[1].attr('href')
-    bar.what_to_drink = deets.css("div.module span")[0].text.strip
-    bar.known_for = deets.css("div.module ul li").map(&:text)
+    bar.website = deets.css("div.info-box a")[1].attr('href') if bar.website == nil
+    bar.what_to_drink = deets.css("div.module span")[0].text.strip if bar.what_to_drink == nil 
+    bar.known_for = deets.css("div.module ul li").map(&:text) if bar.known_for == nil 
+    
     if deets.css("div.module h5").text.include?("Neighborhood")
-      bar.neighborhood = deets.css("div.module h5 a").text.strip
-    elsif deets.css("div.module h5").text.include?("ProTip")
-      bar.protip = deets.css("div.module span")[1].text.strip
+      bar.neighborhood = deets.css("div.module a").text.strip if bar.neighborhood == nil 
+    end 
+    if deets.css("div.module h5").text.include?("ProTip")
+      bar.protip = deets.css("div.module span")[1].text.strip if bar.protip == nil 
     end
-  end 
-  
-  # def self.scrape_more_info(bar)
-  #   more_info = {}
-    
-  #   html = Nokogiri::HTML(open(bar.url))
-  #   more = html.css("div.bordered-box.clearfix")
+  end
 
-  #   more.each do |i|
-  #     if i.css("div.module h5")[2].text == "Neighborhood"
-  #       more_info[:neighborhood] = i.css("a").text.strip
-  #     elsif i.css("div.module h5").last.text == "ProTip"
-  #       more_info[:protip] = i.css("span")[1].text
-  #     end
-  #   end 
-
-  #   more_info[:what_to_drink] = more.css("span")[0].text.strip
-
-  #   more_info
-  # end 
-    
 end 
