@@ -1,5 +1,6 @@
 require 'pry'
 require 'nokogiri'
+require 'colorize'
 require 'open-uri'
 
 require_relative './tiki_bars/version.rb'
