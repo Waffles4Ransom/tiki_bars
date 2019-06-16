@@ -39,8 +39,8 @@ class CLI
     if index.between?(0, Bar.all.size - 1) 
       bar = Bar.all[index]
       Scraper.scrape_bar_info(bar)
-      # self.add_attributes_to_bars(bar)
       self.display_bar_info(bar)
+      #self.launch(bar)
     else
       puts "Invalid response..."
       self.choose_bar
@@ -63,6 +63,18 @@ class CLI
     puts "Pro Tip: #{bar.protip}" if !bar.protip.empty?
     puts "\n\n"
   end 
+  
+  # def launch(bar)
+  #   puts "Would you like to view this bar's website?"
+  #   input = gets.strip.downcase 
+  #   if input == 'yes' || 'y'
+  #     Launchy.open("#{bar.website}")
+  #   elsif input == 'no' ||'n' 
+  #     self.continue?
+  #   else 
+  #     puts "Invalid response..."
+  #   end
+  # end 
   
   def continue?
     puts "Please enter 'y' to choose another tiki bar or 'exit' to leave:"
