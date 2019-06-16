@@ -1,6 +1,6 @@
 class Bar 
    attr_reader :name, :url
-   attr_accessor :address, :hours, :neighborhood, :protip, :what_to_drink
+   attr_accessor :address, :hours, :website, :neighborhood, :protip, :what_to_drink, :known_for
    
    @@all = []
   
@@ -11,11 +11,11 @@ class Bar
     @@all << self
   end 
   
-  def add_bar_attributes(attributes_hash)
-    attributes_hash.each do |k,v|
-      self.send("#{k}=", v)
-    end 
-  end
+  # def add_bar_attributes(attributes_hash)
+  #   attributes_hash.each do |k,v|
+  #     self.send("#{k}=", v)
+  #   end 
+  # end
   
   def self.all
     @@all
