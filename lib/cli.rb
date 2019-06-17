@@ -30,7 +30,6 @@ class CLI
       bar = Bar.all[index]
       Scraper.scrape_bar_info(bar)
       self.display_bar_info(bar)
-      #self.launch(bar)
     else
       puts "Invalid response..."
       self.choose_bar
@@ -45,28 +44,20 @@ class CLI
     puts "\n"
     puts "#{bar.name} is known for:".light_blue
     bar.known_for.each_with_index { |li, i| puts "#{i+1}. #{li}" }
-    puts "\n"
+    puts "\n" if bar.neighborhood != nil
     puts "The local neighborhood is #{bar.neighborhood}." if bar.neighborhood != nil
     puts "\n"
-    puts "Recommended order: #{bar.what_to_drink}" 
+    puts "Recommended order:".light_blue
+    puts bar.what_to_drink
+    puts "\n" if !bar.protip.empty?
+    puts "Pro Tip:".light_blue if !bar.protip.empty?
+    puts  bar.protip if !bar.protip.empty?
     puts "\n"
-    puts "Pro Tip: #{bar.protip}" if !bar.protip.empty?
-    puts "\n\n"
   end 
   
-  # def launch(bar)
-  #   puts "Would you like to view this bar's website?"
-  #   input = gets.strip.downcase 
-  #   if input == 'yes' || 'y'
-  #     Launchy.open("#{bar.website}")
-  #   elsif input == 'no' ||'n' 
-  #     self.continue?
-  #   else 
-  #     puts "Invalid response..."
-  #   end
-  # end 
-  
   def continue?
+    puts "`'-.,_,.-'`".light_blue * 6 
+    puts "\n"
     puts "Please enter 'y' to choose another tiki bar or 'exit' to leave:"
     input = gets.strip.downcase
     case input
