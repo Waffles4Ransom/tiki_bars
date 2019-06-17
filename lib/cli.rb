@@ -11,24 +11,31 @@ class CLI
     puts "``'-.,_,.-'``'-.,_,.='``'-.,_,.-'``'-.,_,.='``'-.,_,.-'``'".light_blue
   end
   
+  # def menu
+  #   puts "\n\n"
+  #   puts "To continue enter 'y' or 'exit' to leave"
+  #   input = gets.strip.downcase
+  #   case input 
+  #   when 'exit'
+  #     self.goodbye
+  #   when 'y' 
+  #     self.list_tiki_bars
+  #     self.choose_bar
+  #     self.continue?
+  #   else
+  #     puts "That isn't a valid response...\n"
+  #     self.menu
+  #   end
+  # end 
+  
   def menu
-    puts "\n\n"
-    puts "To continue enter 'y' or 'exit' to leave"
-    input = gets.strip.downcase
-    case input 
-    when 'exit'
-      self.goodbye
-    when 'y' 
-      self.list_tiki_bars
-      self.choose_bar
-      self.continue?
-    else
-      puts "That isn't a valid response...\n"
-      self.menu
-    end
+    self.list_tiki_bars
+    self.choose_bar
+    self.continue?
   end 
     
   def list_tiki_bars
+    puts "\n\n"
     puts "The following is an unranked list:"
     Bar.all.each.with_index(1) { |b, i| puts "#{i}. #{b.name}" }
   end
