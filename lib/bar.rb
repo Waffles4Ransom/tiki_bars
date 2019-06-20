@@ -6,12 +6,14 @@ class Bar
   
   def initialize(name, url)
     @name, @url = name, url
-    @address = nil 
-    @hours = nil
     @@all << self
   end 
   
   def self.all
     @@all
+  end 
+  
+  def self.alpha_sort
+    Bar.all.sort_by {|bar| bar.name}
   end 
 end 

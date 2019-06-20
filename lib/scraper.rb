@@ -17,18 +17,17 @@ class Scraper
     html = Nokogiri::HTML(open(bar.url))
     deets = html.css("div.left-col.col-xs-12.col-sm-12.col-md-8.col-lg-8")
 
-    bar.address = deets.css("div.info-box a")[0].text.strip if bar.address == nil 
-    bar.hours = deets.css("div.info-box div")[1].text.strip if bar.hours == nil
-    bar.website = deets.css("div.info-box a")[1].attr('href') if bar.website == nil
-    bar.what_to_drink = deets.css("div.module span")[0].text.strip if bar.what_to_drink == nil 
-    bar.known_for = deets.css("div.module ul li").map(&:text) if bar.known_for == nil 
+    bar.address = deets.css("div.info-box a")[0].text.strip  
+    bar.hours = deets.css("div.info-box div")[1].text.strip 
+    bar.website = deets.css("div.info-box a")[1].attr('href') 
+    bar.what_to_drink = deets.css("div.module span")[0].text.strip  
+    bar.known_for = deets.css("div.module ul li").map(&:text) 
     
     if deets.css("div.module h5").text.include?("Neighborhood")
-      bar.neighborhood = deets.css("div.module a").text.strip if bar.neighborhood == nil 
+      bar.neighborhood = deets.css("div.module a").text.strip  
     end 
     if deets.css("div.module h5").text.include?("ProTip")
-      bar.protip = deets.css("div.module span")[1].text.strip if bar.protip == nil 
+      bar.protip = deets.css("div.module span")[1].text.strip 
     end
   end
-
 end 

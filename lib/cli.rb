@@ -20,15 +20,15 @@ class CLI
   def list_tiki_bars
     puts "\n\n"
     puts "The following is an unranked list:"
-    Bar.all.each.with_index(1) { |b, i| puts "#{i}. #{b.name}" }
+    Bar.alpha_sort.each.with_index(1) { |b, i| puts "#{i}. #{b.name}" }
   end
   
   def choose_bar
     puts "Please enter the number of the bar you'd like to read more about:".blue
     index = gets.strip.to_i - 1
     if index.between?(0, Bar.all.size - 1) 
-      bar = Bar.all[index]
-      Scraper.scrape_bar_info(bar)
+      bar = Bar.alpha_sort[index]
+      Scraper.scrape_bar_info(bar) if bar.address == nil
       self.display_bar_info(bar)
     else
       puts "Invalid response..."
@@ -65,9 +65,7 @@ class CLI
       self.goodbye
     when 'y'
       puts "\n\n"
-      self.list_tiki_bars
-      self.choose_bar
-      self.continue?
+      self.menu
     else
       puts "Invalid response..."
       self.continue?
