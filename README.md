@@ -5,6 +5,8 @@ This gem will allow you to see a list of the 15 Most Important Tiki Bars in the 
 
 ![Tiki Gem Screenshot](https://i.imgur.com/N0hkNmc.png)
 
+<a href="https://youtu.be/FfaqY1bpg3w"><strong>Demo Video</strong></a>
+
 ## Installation
 
 Add this line to your application's Gemfile:
